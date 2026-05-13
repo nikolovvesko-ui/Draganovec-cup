@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Драгановец Къп</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #08111f;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(3, 7, 18, 0.78), rgba(3, 7, 18, 0.88)),
+        url('poster.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, transparent 20%, rgba(0,0,0,0.55));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 72px;
+      line-height: 1;
+      font-weight: 800;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+    }
+
+    .hero-text .accent {
+      color: #facc15;
+    }
+
+    .hero-text p {
+      font-size: 20px;
+      line-height: 1.8;
+      color: #e5e7eb;
+      margin-bottom: 35px;
+      max-width: 700px;
+    }
+
+    .badges {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+      padding: 18px 34px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 700;
+      transition: 0.3s ease;
+      box-shadow: 0 10px 30px rgba(34,197,94,0.35);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+    }
+
+    .form-card {
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 35px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .form-card h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .form-card p {
+      color: #cbd5e1;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: #f8fafc;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.06);
+      color: white;
+      font-size: 16px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .form-group input:focus {
+      border-color: #22c55e;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 18px;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #e11d48, #be123c);
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .section {
+      padding: 90px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: #cbd5e1;
+      font-size: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #0f172a;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 24px;
+      padding: 35px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #facc15;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    .contacts {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+
+    .contact-item {
+      background: #111827;
+      padding: 20px 30px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.06);
+      font-weight: 600;
+    }
+
+    footer {
+      background: #020617;
+      text-align: center;
+      padding: 30px 20px;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    @media (max-width: 980px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .badges {
+        justify-content: center;
+      }
+
+      .hero-text h1 {
+        font-size: 52px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        min-height: auto;
+      }
+
+      .hero-content {
+        gap: 30px;
+      }
+
+      .hero-text h1 {
+        font-size: 38px;
+        line-height: 1.1;
+      }
+
+      .hero-text p {
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .badge {
+        width: 100%;
+        text-align: center;
+      }
+
+      .cta-button {
+        width: 100%;
+        text-align: center;
+        padding: 16px;
+      }
+
+      .section {
+        padding: 60px 18px;
+      }
+
+      .section-title h2 {
+        font-size: 32px;
+      }
+
+      .form-card {
+        padding: 22px;
+        border-radius: 22px;
+      }
+
+      .form-card h2 {
+        font-size: 28px;
+      }
+
+      .form-group input {
+        padding: 15px;
+        font-size: 16px;
+      }
+
+      .submit-btn {
+        padding: 16px;
+      }
+
+      .contacts {
+        gap: 15px;
+      }
+
+      .contact-item {
+        width: 100%;
+        text-align: center;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+
+      <div class="hero-text">
+        <div class="badges">
+          <div class="badge">⚽ Благотворителен турнир</div>
+          <div class="badge">📅 6–7 Юни</div>
+          <div class="badge">❤️ В подкрепа на Ванеса и Анна Мария</div>
+        </div>
+
+        <h1>
+          Драгановец <span class="accent">Къп</span>
+        </h1>
+
+        <p>
+          Един турнир. Една кауза. Едно голямо добро.
+          <br><br>
+          С всяко участие подаряваме надежда.
+          Нека заедно подадем ръка на Анна Мария и Ванеса в тяхната битка.
+        </p>
+
+        <a href="#signup" class="cta-button">Запиши отбор</a>
+      </div>
+
+      <div class="form-card" id="signup">
+        <h2>Записване</h2>
+
+        <p>
+          Попълнете формата и ще се свържем с вас за потвърждение.
+        </p>
+
+        <form action="https://formsubmit.co/nikolov.vesko@outlook.com" method="POST">
+
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_subject" value="Ново записване за Драгановец Къп">
+
+          <div class="form-group">
+            <label>Име на отбора</label>
+            <input type="text" name="team" required>
+          </div>
+
+          <div class="form-group">
+            <label>Име на отговорник</label>
+            <input type="text" name="manager" required>
+          </div>
+
+          <div class="form-group">
+            <label>Телефонен номер</label>
+            <input type="tel" name="phone" required>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            Запиши отбора
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>За каузата</h2>
+        <p>
+          Турнирът се организира с благотворителна цел в подкрепа на Ванеса и Анна Мария.
+        </p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>⚽ Футбол и кауза</h3>
+          <p>
+            Всеки записан отбор помага за събирането на средства и подкрепа.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>❤️ Подкрепа</h3>
+          <p>
+            Заедно можем да дадем надежда и сила на двете деца и техните семейства.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>🏆 Турнир</h3>
+          <p>
+            Очакват ви футбол, емоции, награди и много добро настроение.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>🔥 Благотворителна скара</h3>
+          <p>
+            По време на турнира ще има благотворителна скара и напитки, а всички събрани средства ще бъдат дарени за каузата на Ванеса и Анна Мария.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="contacts">
+        <div class="contact-item">📞 +359 89 5073994</div>
+        <div class="contact-item">📞 +359 89 8347883</div>
+        <div class="contact-item">📞 +359 89 6704496</div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Драгановец Къп • Благотворителен футболен турнир
+  </footer>
+
+</body>
+</html>

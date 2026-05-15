@@ -417,31 +417,33 @@
           Попълнете формата и ще се свържем с вас за потвърждение.
         </p>
 
-        <form action="https://formsubmit.co/nikolov.vesko@outlook.com" method="POST">
+  <form action="https://api.web3forms.com/submit" method="POST">
 
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_subject" value="Ново записване за Драгановец Къп">
-
+          <input type="hidden" name="access_key" value="db8ea765-5f01-4eff-968a-a10830a1f5b2">
+        
+          <input type="hidden" name="subject" value="Ново записване за Драгановец Къп">
+        
+          <input type="hidden" name="from_name" value="Драгановец Къп">
+        
           <div class="form-group">
             <label>Име на отбора</label>
             <input type="text" name="team" required>
           </div>
-
+        
           <div class="form-group">
             <label>Име на отговорник</label>
             <input type="text" name="manager" required>
           </div>
-
+        
           <div class="form-group">
             <label>Телефонен номер</label>
             <input type="tel" name="phone" required>
           </div>
-
+        
           <button type="submit" class="submit-btn">
             Запиши отбора
           </button>
-          
+        
         </form>
       </div>
 
